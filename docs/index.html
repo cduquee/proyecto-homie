@@ -1,0 +1,3760 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { color: #00769e; background-color: #f1f3f5; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #00769e; } /* Normal */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #657422; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #00769e; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #00769e; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #00769e; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Homies &amp; Family</title>
+
+  <meta property="description" itemprop="description" content="Proyecto de Simulación de Eventos Discretos."/>
+
+
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Homies &amp; Family"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Proyecto de Simulación de Eventos Discretos."/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:site_name" content="Homies &amp; Family"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Homies &amp; Family"/>
+  <meta property="twitter:description" content="Proyecto de Simulación de Eventos Discretos."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site"]}},"value":[{"type":"character","attributes":{},"value":["Homies & Family"]},{"type":"character","attributes":{},"value":["Proyecto de Simulación de Eventos Discretos.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  <!--radix_placeholder_navigation_in_header-->
+  <meta name="distill:offset" content=""/>
+
+  <script type="application/javascript">
+
+    window.headroom_prevent_pin = false;
+
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+
+      // initialize headroom for banner
+      var header = $('header').get(0);
+      var headerHeight = header.offsetHeight;
+      var headroom = new Headroom(header, {
+        tolerance: 5,
+        onPin : function() {
+          if (window.headroom_prevent_pin) {
+            window.headroom_prevent_pin = false;
+            headroom.unpin();
+          }
+        }
+      });
+      headroom.init();
+      if(window.location.hash)
+        headroom.unpin();
+      $(header).addClass('headroom--transition');
+
+      // offset scroll location for banner on hash change
+      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+      window.addEventListener("hashchange", function(event) {
+        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+      });
+
+      // responsive menu
+      $('.distill-site-header').each(function(i, val) {
+        var topnav = $(this);
+        var toggle = topnav.find('.nav-toggle');
+        toggle.on('click', function() {
+          topnav.toggleClass('responsive');
+        });
+      });
+
+      // nav dropdowns
+      $('.nav-dropbtn').click(function(e) {
+        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+        $(this).parent().siblings('.nav-dropdown')
+           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $("body").click(function(e){
+        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $(".nav-dropdown").click(function(e){
+        e.stopPropagation();
+      });
+    });
+  </script>
+
+  <style type="text/css">
+
+  /* Theme (user-documented overrideables for nav appearance) */
+
+  .distill-site-nav {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #0F2E3D;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  .distill-site-nav a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .distill-site-nav a:hover {
+    color: white;
+  }
+
+  @media print {
+    .distill-site-nav {
+      display: none;
+    }
+  }
+
+  .distill-site-header {
+
+  }
+
+  .distill-site-footer {
+
+  }
+
+
+  /* Site Header */
+
+  .distill-site-header {
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 3;
+  }
+
+  .distill-site-header .nav-left {
+    display: inline-block;
+    margin-left: 8px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header .nav-left {
+      margin-left: 0;
+    }
+  }
+
+
+  .distill-site-header .nav-right {
+    float: right;
+    margin-right: 8px;
+  }
+
+  .distill-site-header a,
+  .distill-site-header .title {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 10px 14px 10px;
+  }
+
+  .distill-site-header .title {
+    font-size: 18px;
+    min-width: 150px;
+  }
+
+  .distill-site-header .logo {
+    padding: 0;
+  }
+
+  .distill-site-header .logo img {
+    display: none;
+    max-height: 20px;
+    width: auto;
+    margin-bottom: -4px;
+  }
+
+  .distill-site-header .nav-image img {
+    max-height: 18px;
+    width: auto;
+    display: inline-block;
+    margin-bottom: -3px;
+  }
+
+
+
+  @media screen and (min-width: 1000px) {
+    .distill-site-header .logo img {
+      display: inline-block;
+    }
+    .distill-site-header .nav-left {
+      margin-left: 20px;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 20px;
+    }
+    .distill-site-header .title {
+      padding-left: 12px;
+    }
+  }
+
+
+  .distill-site-header .nav-toggle {
+    display: none;
+  }
+
+  .nav-dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  .nav-dropdown .nav-dropbtn {
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 16px 10px;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    margin-top: 1px;
+    z-index: 2;
+  }
+
+  .nav-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-top: 2px;
+    white-space: nowrap;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .nav-dropdown-content hr {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-dropdown-active {
+    display: block;
+  }
+
+  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+    color: black;
+    padding: 6px 24px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .nav-dropdown-content .nav-dropdown-header {
+    display: block;
+    padding: 5px 24px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #999999;
+    white-space: nowrap;
+  }
+
+  .nav-dropdown:hover .nav-dropbtn {
+    color: white;
+  }
+
+  .nav-dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .nav-right .nav-dropdown-content {
+    margin-left: -45%;
+    right: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+    .distill-site-header a.nav-toggle {
+      float: right;
+      display: block;
+    }
+    .distill-site-header .title {
+      margin-left: 0;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 0;
+    }
+    .distill-site-header {
+      overflow: hidden;
+    }
+    .nav-right .nav-dropdown-content {
+      margin-left: 0;
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header.responsive {position: relative; min-height: 500px; }
+    .distill-site-header.responsive a.nav-toggle {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .distill-site-header.responsive a,
+    .distill-site-header.responsive .nav-dropdown {
+      display: block;
+      text-align: left;
+    }
+    .distill-site-header.responsive .nav-left,
+    .distill-site-header.responsive .nav-right {
+      width: 100%;
+    }
+    .distill-site-header.responsive .nav-dropdown {float: none;}
+    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  /* Site Footer */
+
+  .distill-site-footer {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 3;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  /* Headroom */
+
+  d-title {
+    padding-top: 6rem;
+  }
+
+  @media print {
+    d-title {
+      padding-top: 4rem;
+    }
+  }
+
+  .headroom {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .headroom--transition {
+    transition: all .4s ease-in-out;
+  }
+
+  .headroom--unpinned {
+    top: -100px;
+  }
+
+  .headroom--pinned {
+    top: 0;
+  }
+
+  /* adjust viewport for navbar height */
+  /* helps vertically center bootstrap (non-distill) content */
+  .min-vh-100 {
+    min-height: calc(100vh - 100px) !important;
+  }
+
+  </style>
+
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet"/>
+  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
+  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
+
+  <script type="application/javascript">
+
+  function getMeta(metaName) {
+    var metas = document.getElementsByTagName('meta');
+    for (let i = 0; i < metas.length; i++) {
+      if (metas[i].getAttribute('name') === metaName) {
+        return metas[i].getAttribute('content');
+      }
+    }
+    return '';
+  }
+
+  function offsetURL(url) {
+    var offset = getMeta('distill:offset');
+    return offset ? offset + '/' + url : url;
+  }
+
+  function createFuseIndex() {
+
+    // create fuse index
+    var options = {
+      keys: [
+        { name: 'title', weight: 20 },
+        { name: 'categories', weight: 15 },
+        { name: 'description', weight: 10 },
+        { name: 'contents', weight: 5 },
+      ],
+      ignoreLocation: true,
+      threshold: 0
+    };
+    var fuse = new window.Fuse([], options);
+
+    // fetch the main search.json
+    return fetch(offsetURL('search.json'))
+      .then(function(response) {
+        if (response.status == 200) {
+          return response.json().then(function(json) {
+            // index main articles
+            json.articles.forEach(function(article) {
+              fuse.add(article);
+            });
+            // download collections and index their articles
+            return Promise.all(json.collections.map(function(collection) {
+              return fetch(offsetURL(collection)).then(function(response) {
+                if (response.status === 200) {
+                  return response.json().then(function(articles) {
+                    articles.forEach(function(article) {
+                      fuse.add(article);
+                    });
+                  })
+                } else {
+                  return Promise.reject(
+                    new Error('Unexpected status from search index request: ' +
+                              response.status)
+                  );
+                }
+              });
+            })).then(function() {
+              return fuse;
+            });
+          });
+
+        } else {
+          return Promise.reject(
+            new Error('Unexpected status from search index request: ' +
+                        response.status)
+          );
+        }
+      });
+  }
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // get search element (bail if we don't have one)
+    var searchEl = window.document.getElementById('distill-search');
+    if (!searchEl)
+      return;
+
+    createFuseIndex()
+      .then(function(fuse) {
+
+        // make search box visible
+        searchEl.classList.remove('hidden');
+
+        // initialize autocomplete
+        var options = {
+          autoselect: true,
+          hint: false,
+          minLength: 2,
+        };
+        window.autocomplete(searchEl, options, [{
+          source: function(query, callback) {
+            const searchOptions = {
+              isCaseSensitive: false,
+              shouldSort: true,
+              minMatchCharLength: 2,
+              limit: 10,
+            };
+            var results = fuse.search(query, searchOptions);
+            callback(results
+              .map(function(result) { return result.item; })
+            );
+          },
+          templates: {
+            suggestion: function(suggestion) {
+              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
+                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
+                : '';
+              var html = `
+                <div class="search-item">
+                  <h3>${suggestion.title}</h3>
+                  <div class="search-item-description">
+                    ${suggestion.description || ''}
+                  </div>
+                  <div class="search-item-preview">
+                    ${img}
+                  </div>
+                </div>
+              `;
+              return html;
+            }
+          }
+        }]).on('autocomplete:selected', function(event, suggestion) {
+          window.location.href = offsetURL(suggestion.path);
+        });
+        // remove inline display style on autocompleter (we want to
+        // manage responsive display via css)
+        $('.algolia-autocomplete').css("display", "");
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+  });
+
+  </script>
+
+  <style type="text/css">
+
+  .nav-search {
+    font-size: x-small;
+  }
+
+  /* Algolioa Autocomplete */
+
+  .algolia-autocomplete {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: sub;
+    background-color: white;
+    color: black;
+    padding: 6px;
+    padding-top: 8px;
+    padding-bottom: 0;
+    border-radius: 6px;
+    border: 1px #0F2E3D solid;
+    width: 180px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .distill-site-nav .algolia-autocomplete {
+      display: none;
+      visibility: hidden;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete {
+      display: inline-block;
+      visibility: visible;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
+      margin-left: 0;
+      width: 400px;
+      max-height: 400px;
+    }
+  }
+
+  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+    width: 90%;
+    outline: none;
+    border: none;
+  }
+
+  .algolia-autocomplete .aa-hint {
+    color: #999;
+  }
+  .algolia-autocomplete .aa-dropdown-menu {
+    width: 550px;
+    max-height: 70vh;
+    overflow-x: visible;
+    overflow-y: scroll;
+    padding: 5px;
+    margin-top: 3px;
+    margin-left: -150px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #999;
+    border-top: none;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+    cursor: pointer;
+    padding: 5px 4px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
+    border-bottom: none;
+    margin-bottom: 2px;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
+    overflow: hidden;
+    font-size: 0.8em;
+    line-height: 1.4em;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+    font-size: 1rem;
+    margin-block-start: 0;
+    margin-block-end: 5px;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
+    display: inline-block;
+    overflow: hidden;
+    height: 2.8em;
+    width: 80%;
+    margin-right: 4%;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
+    display: inline-block;
+    width: 15%;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
+    height: 3em;
+    width: auto;
+    display: none;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
+    display: initial;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+    background-color: #eee;
+  }
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  </style>
+
+
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+    font-size: 100%;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  hr.section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0px;
+  }
+
+
+  d-byline {
+    border-top: none;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+    border-top: none;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  /* tweak for Pandoc numbered line within distill */
+  d-article pre.numberSource code > span {
+      left: -2em;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // separator
+    var separator = '<hr class="section-separator" style="clear: both"/>';
+    // prepend separator above appendix
+    $('.d-byline').before(separator);
+    $('.d-article').before(separator);
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme, except when numbering line
+    // in code chunk
+    $('pre:not(.numberLines) code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        var author_name = front_matter.authors[i].author
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', author_name ? 'ORCID ID for ' + author_name : 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <style type="text/css">
+  /* base variables */
+
+  /* Edit the CSS properties in this file to create a custom
+     Distill theme. Only edit values in the right column
+     for each row; values shown are the CSS defaults.
+     To return any property to the default,
+     you may set its value to: unset
+     All rows must end with a semi-colon.                      */
+
+  /* Optional: embed custom fonts here with `@import`          */
+  /* This must remain at the top of this file.                 */
+
+
+
+  html {
+    /*-- Main font sizes --*/
+    --title-size:      50px;
+    --body-size:       1.06rem;
+    --code-size:       14px;
+    --aside-size:      12px;
+    --fig-cap-size:    13px;
+    /*-- Main font colors --*/
+    --title-color:     #000000;
+    --header-color:    rgba(0, 0, 0, 0.8);
+    --body-color:      rgba(0, 0, 0, 0.8);
+    --aside-color:     rgba(0, 0, 0, 0.6);
+    --fig-cap-color:   rgba(0, 0, 0, 0.6);
+    /*-- Specify custom fonts ~~~ must be imported above   --*/
+    --heading-font:    sans-serif;
+    --mono-font:       monospace;
+    --body-font:       sans-serif;
+    --navbar-font:     sans-serif;  /* websites + blogs only */
+  }
+
+  /*-- ARTICLE METADATA --*/
+  d-byline {
+    --heading-size:    0.6rem;
+    --heading-color:   rgba(0, 0, 0, 0.5);
+    --body-size:       0.8rem;
+    --body-color:      rgba(0, 0, 0, 0.8);
+  }
+
+  /*-- ARTICLE TABLE OF CONTENTS --*/
+  .d-contents {
+    --heading-size:    18px;
+    --contents-size:   13px;
+  }
+
+  /*-- ARTICLE APPENDIX --*/
+  d-appendix {
+    --heading-size:    15px;
+    --heading-color:   rgba(0, 0, 0, 0.65);
+    --text-size:       0.8em;
+    --text-color:      rgba(0, 0, 0, 0.5);
+  }
+
+  /*-- WEBSITE HEADER + FOOTER --*/
+  /* These properties only apply to Distill sites and blogs  */
+
+  .distill-site-header {
+    --title-size:       18px;
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #0F2E3D;
+  }
+
+  .distill-site-footer {
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #0F2E3D;
+  }
+
+  /*-- Additional custom styles --*/
+  /* Add any additional CSS rules below                      */
+  </style>
+  <style type="text/css">
+  /* base variables */
+
+  /* Edit the CSS properties in this file to create a custom
+     Distill theme. Only edit values in the right column
+     for each row; values shown are the CSS defaults.
+     To return any property to the default,
+     you may set its value to: unset
+     All rows must end with a semi-colon.                      */
+
+  /* Optional: embed custom fonts here with `@import`          */
+  /* This must remain at the top of this file.                 */
+
+
+  /* Headers */
+  d-article h1 {
+    font-size: 30px;
+  }
+  d-article h2 {
+    font-size: 25px;
+  }
+  d-article h3 {
+    font-size: 20px;
+  }
+
+  html {
+    /*-- Main font sizes --*/
+    --title-size:      50px;
+    --body-size:       1.06rem;
+    --code-size:       14px;
+    --aside-size:      12px;
+    --fig-cap-size:    13px;
+    /*-- Main font colors --*/
+    --title-color:     #000000;
+    --header-color:    rgba(0, 0, 0, 0.8);
+    --body-color:      rgba(0, 0, 0, 0.8);
+    --aside-color:     rgba(0, 0, 0, 0.6);
+    --fig-cap-color:   rgba(0, 0, 0, 0.6);
+    /*-- Specify custom fonts ~~~ must be imported above   --*/
+    --heading-font:    "Segoe UI";
+    --mono-font:       "Segoe UI";
+    --body-font:       "Segoe UI";
+    --navbar-font:     "Segoe UI";  /* websites + blogs only */
+  }
+
+  /*-- ARTICLE METADATA --*/
+  d-byline {
+    --heading-size:    0.6rem;
+    --heading-color:   rgba(0, 0, 0, 0.5);
+    --body-size:       0.8rem;
+    --body-color:      rgba(0, 0, 0, 0.8);
+  }
+
+  /*-- ARTICLE TABLE OF CONTENTS --*/
+  .d-contents {
+    --heading-size:    18px;
+    --contents-size:   13px;
+  }
+
+  /*-- ARTICLE APPENDIX --*/
+  d-appendix {
+    --heading-size:    15px;
+    --heading-color:   rgba(0, 0, 0, 0.65);
+    --text-size:       0.8em;
+    --text-color:      rgba(0, 0, 0, 0.5);
+  }
+
+  /*-- WEBSITE HEADER + FOOTER --*/
+  /* These properties only apply to Distill sites and blogs  */
+
+  .distill-site-header {
+    --title-size:       18px;
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #7c53a2;
+  }
+
+  .distill-site-footer {
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #7c53a2;
+  }
+
+  /*-- Additional custom styles --*/
+  /* Add any additional CSS rules below                      */
+  </style>
+  <style type="text/css">
+  /* base style */
+
+  /* FONT FAMILIES */
+
+  :root {
+    --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  body,
+  .posts-list .post-preview p,
+  .posts-list .description p {
+    font-family: var(--body-font), var(--body-default);
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .posts-list .post-preview h2,
+  .posts-list .description h2 {
+    font-family: var(--heading-font), var(--heading-default);
+  }
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: var(--mono-font), var(--mono-default);
+  }
+
+
+  /*-- TITLE --*/
+  d-title h1,
+  .posts-list > h1 {
+    color: var(--title-color, black);
+  }
+
+  d-title h1 {
+    font-size: var(--title-size, 50px);
+  }
+
+  /*-- HEADERS --*/
+  d-article h1,
+  d-article h2,
+  d-article h3,
+  d-article h4,
+  d-article h5,
+  d-article h6 {
+    color: var(--header-color, rgba(0, 0, 0, 0.8));
+  }
+
+  /*-- BODY --*/
+  d-article > p,  /* only text inside of <p> tags */
+  d-article > ul, /* lists */
+  d-article > ol {
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+    font-size: var(--body-size, 1.06rem);
+  }
+
+
+  /*-- CODE --*/
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-size: var(--code-size, 14px);
+  }
+
+  /*-- ASIDE --*/
+  d-article aside {
+    font-size: var(--aside-size, 12px);
+    color: var(--aside-color, rgba(0, 0, 0, 0.6));
+  }
+
+  /*-- FIGURE CAPTIONS --*/
+  figure .caption,
+  figure figcaption,
+  .figure .caption {
+    font-size: var(--fig-cap-size, 13px);
+    color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
+  }
+
+  /*-- METADATA --*/
+  d-byline h3 {
+    font-size: var(--heading-size, 0.6rem);
+    color: var(--heading-color, rgba(0, 0, 0, 0.5));
+  }
+
+  d-byline {
+    font-size: var(--body-size, 0.8rem);
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+  }
+
+  d-byline a,
+  d-article d-byline a {
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+  }
+
+  /*-- TABLE OF CONTENTS --*/
+  .d-contents nav h3 {
+    font-size: var(--heading-size, 18px);
+  }
+
+  .d-contents nav a {
+    font-size: var(--contents-size, 13px);
+  }
+
+  /*-- APPENDIX --*/
+  d-appendix h3 {
+    font-size: var(--heading-size, 15px);
+    color: var(--heading-color, rgba(0, 0, 0, 0.65));
+  }
+
+  d-appendix {
+    font-size: var(--text-size, 0.8em);
+    color: var(--text-color, rgba(0, 0, 0, 0.5));
+  }
+
+  d-appendix d-footnote-list a.footnote-backlink {
+    color: var(--text-color, rgba(0, 0, 0, 0.5));
+  }
+
+  /*-- WEBSITE HEADER + FOOTER --*/
+  .distill-site-header .title {
+    font-size: var(--title-size, 18px);
+    font-family: var(--navbar-font), var(--heading-default);
+  }
+
+  .distill-site-header a,
+  .nav-dropdown .nav-dropbtn {
+    font-family: var(--navbar-font), var(--heading-default);
+  }
+
+  .nav-dropdown .nav-dropbtn {
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    font-size: var(--text-size, 15px);
+  }
+
+  .distill-site-header a:hover,
+  .nav-dropdown:hover .nav-dropbtn {
+    color: var(--hover-color, white);
+  }
+
+  .distill-site-header {
+    font-size: var(--text-size, 15px);
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    background-color: var(--bkgd-color, #0F2E3D);
+  }
+
+  .distill-site-footer {
+    font-size: var(--text-size, 15px);
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    background-color: var(--bkgd-color, #0F2E3D);
+  }
+
+  .distill-site-footer a:hover {
+    color: var(--hover-color, white);
+  }</style>
+  <!--/radix_placeholder_distill-->
+  <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+  <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+  <script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+  <script src="site_libs/plotly-binding-4.10.3/plotly.js"></script>
+  <script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+  <link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+  <script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+  <link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+  <script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <style type="text/css">
+
+
+  @media (min-width: 992px) {
+      .col-md-9 {
+        width: 75%;
+        padding-left: 5em !important;
+      }
+   }
+
+  #TOC::before {
+    content: "";
+    display: block;
+    height: 200px;
+    margin: 2em 20px 40px 20px;
+    background-image: url("images/homies_logo.png");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+
+  /* -----------HERO IMAGE AT TOP OF PAGE -----------*/
+
+  /* LARGE HERO IMAGE AT TOP OF PAGE*/
+
+  .hero-image {
+      position: relative;
+      margin-bottom: 2em;
+      /* liner gradient tints the image darker for readability*/
+      background-image: linear-gradient( rgba(0,0,0,.2), rgba(0,0,0,.2) ), url(images/homies_logo.png); 
+      height: 400px;
+      background-size: cover;
+      background-color: #141c25f2;
+      background-position: center center;
+      display: flex; /* Change to `display: none` for no hero image */
+      justify-content: center;
+      align-items: center;
+  }
+
+  .top-text {
+    position: relative;
+    font-size: 34px;
+    padding-bottom: 0.5em
+    text-transform: uppercase;
+    text-align: center;
+    display: block; /* Change to `display: none` for no top text */
+    color: #ffffff72;
+  }
+
+  .bottom-text {
+    position: relative;
+    letter-spacing: 0.065em;
+    line-height: 1em;
+    font-size: 68px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block; /* Change to `display: none` for no bottom text */
+    color: #ffffff;
+    margin-bottom: 2.5rem;
+    font-weight: bold;
+  }
+
+
+  .table-hover > tbody > tr:hover { 
+    background-color: #f8ebff;
+  }
+
+  .uniandes-logo { /* svg */
+      max-width: 60px;
+      max-height: 60px;
+  }
+
+
+  </style>
+  <!--/radix_placeholder_site_in_header-->
+
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Homies & Family","description":"Proyecto de Simulación de Eventos Discretos.","authors":[]}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a class="logo" href="https://www.instagram.com/homiesandfamily/">
+<img src="images/homies_logo_w.png" alt="Logo"/>
+</a>
+<a href="index.html" class="title">Homies &amp; Family</a>
+</div>
+<div class="nav-right">
+<a href="about.html">Nosotros</a>
+<a href="tables.html">Proyecto</a>
+<a href="equipo.html">Modelo</a>
+<a href="equipo.html">Equipo</a>
+<a href="https://github.com/cduquee/proyecto-homie/tree/main">
+<i class="fab fa-github" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Homies &amp; Family</h1>
+
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>Proyecto de Simulación de Eventos Discretos.</p></p>
+</div>
+
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#pruebas-de-supuestos" id="toc-pruebas-de-supuestos">Pruebas de Supuestos</a>
+<ul>
+<li><a href="#homogeniedad-de-varianzas" id="toc-homogeniedad-de-varianzas">Homogeniedad de Varianzas</a>
+<ul>
+<li><a href="#prueba-de-hipotesis" id="toc-prueba-de-hipotesis">Prueba de Hipotesis</a></li>
+</ul></li>
+<li><a href="#homogeniedad-de-medias" id="toc-homogeniedad-de-medias">Homogeniedad de Medias</a>
+<ul>
+<li><a href="#prueba-de-hipotesis-1" id="toc-prueba-de-hipotesis-1">Prueba de Hipotesis</a></li>
+</ul></li>
+<li><a href="#autocorrelación" id="toc-autocorrelación">Autocorrelación</a></li>
+<li><a href="#pruebas-de-bondad-de-ajuste" id="toc-pruebas-de-bondad-de-ajuste">Pruebas de Bondad de Ajuste</a>
+<ul>
+<li><a href="#prueba-de-hipotesis-2" id="toc-prueba-de-hipotesis-2">Prueba de Hipotesis</a></li>
+<li><a href="#tiempo-entre-arribos-2" id="toc-tiempo-entre-arribos-2">Tiempo Entre Arribos</a></li>
+<li><a href="#tiempo-de-servicio-caja-2" id="toc-tiempo-de-servicio-caja-2">Tiempo de Servicio Caja</a></li>
+<li><a href="#tiempo-de-servicio-hamburguesa-1" id="toc-tiempo-de-servicio-hamburguesa-1">Tiempo de Servicio Hamburguesa</a></li>
+<li><a href="#tiempo-de-servicio-nuggets-2" id="toc-tiempo-de-servicio-nuggets-2">Tiempo de Servicio Nuggets</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#generación-de-replicas" id="toc-generación-de-replicas">Generación de Replicas</a></li>
+</ul>
+</nav>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h1 id="pruebas-de-supuestos">Pruebas de Supuestos</h1>
+<ul>
+<li>Homogeniedad de Varianzas <em>(Bartlett-test)</em></li>
+<li>Homogeniedad de Medias <em>(F-test)</em></li>
+<li>Autocorrelación <em>(Ljung-Box test)</em></li>
+<li>Prueba de Bondad de Ajuste <em>(Kolmogorov-Smirnov test)</em></li>
+</ul>
+<p><br />
+</p>
+<h2 id="homogeniedad-de-varianzas">Homogeniedad de Varianzas</h2>
+<p>Para la <strong>Prueba de Homogeniedad de Varianzas</strong> se realiza una prueba de hipotesis que permite identificar si la varianzas son estadisticamente iguales para todas las muestras de los datos. En el proyecto se utilizó la prueba de <em>Bartlett-test</em>, la cual se muestra a continuación:</p>
+<h3 id="prueba-de-hipotesis">Prueba de Hipotesis</h3>
+<p><span class="math display">\[H_0:\ \sigma^2_1 = \sigma^2_2 = \sigma^2_3 = \sigma^2_4\]</span>
+<span class="math display">\[H_A: \neg \ H_0\]</span></p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h4 id="tiempo-entre-arribos">Tiempo entre Arribos</h4>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Prueba
+</th>
+<th style="text-align:right;">
+DF
+</th>
+<th style="text-align:right;">
+Test statistic
+</th>
+<th style="text-align:left;">
+p value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Bartlett-test
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+5.576268
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.1341</span>
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup>1</sup> Bartlett test of homogeneity of variances
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<h4 id="tiempo-de-servicio-caja">Tiempo de Servicio Caja</h4>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Prueba
+</th>
+<th style="text-align:right;">
+DF
+</th>
+<th style="text-align:right;">
+Test statistic
+</th>
+<th style="text-align:left;">
+p value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Bartlett-test
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+6.567785
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.087</span>
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup>1</sup> Bartlett test of homogeneity of variances
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<h4 id="tiempo-de-servicio-hamburguesa">Tiempo de Servicio Hamburguesa</h4>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Prueba
+</th>
+<th style="text-align:right;">
+DF
+</th>
+<th style="text-align:right;">
+Test statistic
+</th>
+<th style="text-align:left;">
+p value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Bartlett-test
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2.033859
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.5654</span>
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup>1</sup> Bartlett test of homogeneity of variances
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<h4 id="tiempo-de-servicio-nuggets">Tiempo de Servicio Nuggets</h4>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Prueba
+</th>
+<th style="text-align:right;">
+DF
+</th>
+<th style="text-align:right;">
+Test statistic
+</th>
+<th style="text-align:left;">
+p value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Bartlett-test
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2.882072
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.4102</span>
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup>1</sup> Bartlett test of homogeneity of variances
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<h2 id="homogeniedad-de-medias">Homogeniedad de Medias</h2>
+<p>Para la <strong>Prueba de Homogeniedad de Media</strong> se realiza una prueba de hipotesis que permite identificar si la medias de las 4 muestras tomadas son estadisticamente iguales. En el proyecto se utilizó el estadístico de prueba <em>F</em> del <em>Analysis of Variance (ANOVA)</em>, el cual se muestra a continuación:</p>
+<h3 id="prueba-de-hipotesis-1">Prueba de Hipotesis</h3>
+<p><span class="math display">\[H_0:\ \mu_1 = \mu_2 = \mu_3 = \mu_4\]</span>
+<span class="math display">\[H_A: \neg \ H_0\]</span>
+<span class="math display">\[F = \frac{MS_R}{MS_E}\]</span></p>
+<h4 id="tiempo-entre-arribos-1">Tiempo entre Arribos</h4>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Fuente
+</th>
+<th style="text-align:right;">
+gl
+</th>
+<th style="text-align:right;">
+Sum_Cuad
+</th>
+<th style="text-align:right;">
+Med_Cuad
+</th>
+<th style="text-align:right;">
+F_ep
+</th>
+<th style="text-align:left;">
+p value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Muestra
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+248.2679
+</td>
+<td style="text-align:right;">
+248.2679
+</td>
+<td style="text-align:right;">
+3.20881
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.0922</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Residuals
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+1237.9312
+</td>
+<td style="text-align:right;">
+77.3707
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+<span style="     color: grey !important;">NA</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="tiempo-de-servicio-caja-1">Tiempo de Servicio Caja</h4>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Fuente
+</th>
+<th style="text-align:right;">
+gl
+</th>
+<th style="text-align:right;">
+Sum_Cuad
+</th>
+<th style="text-align:right;">
+Med_Cuad
+</th>
+<th style="text-align:right;">
+F_ep
+</th>
+<th style="text-align:left;">
+p value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Muestra
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.8829809
+</td>
+<td style="text-align:right;">
+0.8829809
+</td>
+<td style="text-align:right;">
+1.024072
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.3257</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Residuals
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+14.6578324
+</td>
+<td style="text-align:right;">
+0.8622254
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+<span style="     color: grey !important;">NA</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="tiempo-de-servicio-hamurguesa">Tiempo de Servicio Hamurguesa</h4>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Fuente
+</th>
+<th style="text-align:right;">
+gl
+</th>
+<th style="text-align:right;">
+Sum_Cuad
+</th>
+<th style="text-align:right;">
+Med_Cuad
+</th>
+<th style="text-align:right;">
+F_ep
+</th>
+<th style="text-align:left;">
+p value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Muestra
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+8.672313
+</td>
+<td style="text-align:right;">
+8.672313
+</td>
+<td style="text-align:right;">
+0.6814676
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.4252</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Residuals
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+152.711237
+</td>
+<td style="text-align:right;">
+12.725936
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+<span style="     color: grey !important;">NA</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="tiempo-de-servicio-nuggets-1">Tiempo de Servicio Nuggets</h4>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Fuente
+</th>
+<th style="text-align:right;">
+gl
+</th>
+<th style="text-align:right;">
+Sum_Cuad
+</th>
+<th style="text-align:right;">
+Med_Cuad
+</th>
+<th style="text-align:right;">
+F_ep
+</th>
+<th style="text-align:left;">
+p value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Muestra
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6.333304
+</td>
+<td style="text-align:right;">
+6.333304
+</td>
+<td style="text-align:right;">
+0.2174144
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.6552</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Residuals
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+203.910713
+</td>
+<td style="text-align:right;">
+29.130102
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+<span style="     color: grey !important;">NA</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="autocorrelación">Autocorrelación</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1427b0fb9002c8bd5da7" style="width:624px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-1427b0fb9002c8bd5da7">{"x":{"visdat":{"1d1850152c5f":["function () ","plotlyVisDat"]},"cur_data":"1d1850152c5f","attrs":{"1d1850152c5f":{"x":{},"y":{},"showlegend":false,"name":"LAG, ACF","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"1d1850152c5f.1":{"x":{},"y":0.46196794144989256,"showlegend":true,"name":"IC Superior","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines","line":{"color":"#c90808"},"inherit":true},"1d1850152c5f.2":{"x":{},"y":-0.46196794144989256,"showlegend":true,"name":"IC Inferior","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines","line":{"color":"#c90808"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":80,"r":10},"title":{"text":"Correlograma Tiempo Entre Arribos","font":{"family":"Segoe UI","size":22,"color":"black"}},"xaxis":{"domain":[0,1],"automargin":true,"title":"LAG","font":{"family":"Segoe UI Light","size":15,"color":"black"}},"yaxis":{"domain":[0,1],"automargin":true,"title":"ACF","font":{"family":"Segoe UI Light","size":15,"color":"black"}},"hovermode":"closest","showlegend":true,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"collaborate":false},"data":[{"x":[0,1,2,3,4,5,6,7,8,9,10,11,12],"y":[0.99999999999999978,0.28400835263796104,0.14989688495454936,0.19450173053978417,-0.075025193670834808,-0.15272202028693629,-0.13594179765645628,-0.065497377050175193,-0.0089773236972439264,-0.16605839061954855,-0.11404900256545746,-0.0080994287309033731,-0.055671605817209258],"showlegend":false,"name":"LAG, ACF","type":"bar","marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.16605839061954855,"cmax":0.99999999999999978,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[0.99999999999999978,0.28400835263796104,0.14989688495454936,0.19450173053978417,-0.075025193670834808,-0.15272202028693629,-0.13594179765645628,-0.065497377050175193,-0.0089773236972439264,-0.16605839061954855,-0.11404900256545746,-0.0080994287309033731,-0.055671605817209258],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.16605839061954855,"cmax":0.99999999999999978,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[0.99999999999999978,0.28400835263796104,0.14989688495454936,0.19450173053978417,-0.075025193670834808,-0.15272202028693629,-0.13594179765645628,-0.065497377050175193,-0.0089773236972439264,-0.16605839061954855,-0.11404900256545746,-0.0080994287309033731,-0.055671605817209258]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,1,2,3,4,5,6,7,8,9,10,11,12],"y":[0.46196794144989256,0.46196794144989256,0.46196794144989256,0.46196794144989256,0.46196794144989256,0.46196794144989256,0.46196794144989256,0.46196794144989256,0.46196794144989256,0.46196794144989256,0.46196794144989256,0.46196794144989256,0.46196794144989256],"showlegend":true,"name":"IC Superior","type":"scatter","mode":"lines","line":{"color":"#c90808"},"marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.16605839061954855,"cmax":0.99999999999999978,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[0.99999999999999978,0.28400835263796104,0.14989688495454936,0.19450173053978417,-0.075025193670834808,-0.15272202028693629,-0.13594179765645628,-0.065497377050175193,-0.0089773236972439264,-0.16605839061954855,-0.11404900256545746,-0.0080994287309033731,-0.055671605817209258],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.16605839061954855,"cmax":0.99999999999999978,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[0.99999999999999978,0.28400835263796104,0.14989688495454936,0.19450173053978417,-0.075025193670834808,-0.15272202028693629,-0.13594179765645628,-0.065497377050175193,-0.0089773236972439264,-0.16605839061954855,-0.11404900256545746,-0.0080994287309033731,-0.055671605817209258]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,1,2,3,4,5,6,7,8,9,10,11,12],"y":[-0.46196794144989256,-0.46196794144989256,-0.46196794144989256,-0.46196794144989256,-0.46196794144989256,-0.46196794144989256,-0.46196794144989256,-0.46196794144989256,-0.46196794144989256,-0.46196794144989256,-0.46196794144989256,-0.46196794144989256,-0.46196794144989256],"showlegend":true,"name":"IC Inferior","type":"scatter","mode":"lines","line":{"color":"#c90808"},"marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.16605839061954855,"cmax":0.99999999999999978,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[0.99999999999999978,0.28400835263796104,0.14989688495454936,0.19450173053978417,-0.075025193670834808,-0.15272202028693629,-0.13594179765645628,-0.065497377050175193,-0.0089773236972439264,-0.16605839061954855,-0.11404900256545746,-0.0080994287309033731,-0.055671605817209258],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.16605839061954855,"cmax":0.99999999999999978,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[0.99999999999999978,0.28400835263796104,0.14989688495454936,0.19450173053978417,-0.075025193670834808,-0.15272202028693629,-0.13594179765645628,-0.065497377050175193,-0.0089773236972439264,-0.16605839061954855,-0.11404900256545746,-0.0080994287309033731,-0.055671605817209258]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,12],"y":[-0.46196794144989256,0.99999999999999978],"type":"scatter","mode":"markers","opacity":0,"hoverinfo":"none","showlegend":false,"marker":{"colorbar":{"title":"Coeficiente de Correlación","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"cmin":-0.16605839061954855,"cmax":0.99999999999999978,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":true,"color":[-0.16605839061954855,0.99999999999999978],"line":{"color":"rgba(214,39,40,1)"}},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<pre><code>
+    Box-Ljung test
+
+data:  Tiempos_sin_ceros
+X-squared = 1.7081, df = 1, p-value = 0.1912</code></pre>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-661aadad91b2b3b3b6e2" style="width:624px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-661aadad91b2b3b3b6e2">{"x":{"visdat":{"1d187cff2112":["function () ","plotlyVisDat"]},"cur_data":"1d187cff2112","attrs":{"1d187cff2112":{"x":{},"y":{},"showlegend":false,"name":"LAG, ACF","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"1d187cff2112.1":{"x":{},"y":0.44964657587312673,"showlegend":true,"name":"IC Superior","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines","line":{"color":"#c90808"},"inherit":true},"1d187cff2112.2":{"x":{},"y":-0.44964657587312673,"showlegend":true,"name":"IC Inferior","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines","line":{"color":"#c90808"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":80,"r":10},"title":{"text":"Correlograma Tiempo de Servicio Caja","font":{"family":"Segoe UI","size":22,"color":"black"}},"xaxis":{"domain":[0,1],"automargin":true,"title":"LAG","font":{"family":"Segoe UI Light","size":15,"color":"black"}},"yaxis":{"domain":[0,1],"automargin":true,"title":"ACF","font":{"family":"Segoe UI Light","size":15,"color":"black"}},"hovermode":"closest","showlegend":true,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"collaborate":false},"data":[{"x":[0,1,2,3,4,5,6,7,8,9,10,11,12],"y":[1,0.34193659928044645,-0.19720828751081196,-0.36833349123721182,-0.082698318445641156,0.12991060548426903,0.031865743993752367,0.051045892070480159,0.053230190037181095,0.016021034616951115,-0.041572916376904127,-0.29775604068027017,-0.23999983378119744],"showlegend":false,"name":"LAG, ACF","type":"bar","marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.36833349123721182,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.34193659928044645,-0.19720828751081196,-0.36833349123721182,-0.082698318445641156,0.12991060548426903,0.031865743993752367,0.051045892070480159,0.053230190037181095,0.016021034616951115,-0.041572916376904127,-0.29775604068027017,-0.23999983378119744],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.36833349123721182,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.34193659928044645,-0.19720828751081196,-0.36833349123721182,-0.082698318445641156,0.12991060548426903,0.031865743993752367,0.051045892070480159,0.053230190037181095,0.016021034616951115,-0.041572916376904127,-0.29775604068027017,-0.23999983378119744]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,1,2,3,4,5,6,7,8,9,10,11,12],"y":[0.44964657587312673,0.44964657587312673,0.44964657587312673,0.44964657587312673,0.44964657587312673,0.44964657587312673,0.44964657587312673,0.44964657587312673,0.44964657587312673,0.44964657587312673,0.44964657587312673,0.44964657587312673,0.44964657587312673],"showlegend":true,"name":"IC Superior","type":"scatter","mode":"lines","line":{"color":"#c90808"},"marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.36833349123721182,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.34193659928044645,-0.19720828751081196,-0.36833349123721182,-0.082698318445641156,0.12991060548426903,0.031865743993752367,0.051045892070480159,0.053230190037181095,0.016021034616951115,-0.041572916376904127,-0.29775604068027017,-0.23999983378119744],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.36833349123721182,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.34193659928044645,-0.19720828751081196,-0.36833349123721182,-0.082698318445641156,0.12991060548426903,0.031865743993752367,0.051045892070480159,0.053230190037181095,0.016021034616951115,-0.041572916376904127,-0.29775604068027017,-0.23999983378119744]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,1,2,3,4,5,6,7,8,9,10,11,12],"y":[-0.44964657587312673,-0.44964657587312673,-0.44964657587312673,-0.44964657587312673,-0.44964657587312673,-0.44964657587312673,-0.44964657587312673,-0.44964657587312673,-0.44964657587312673,-0.44964657587312673,-0.44964657587312673,-0.44964657587312673,-0.44964657587312673],"showlegend":true,"name":"IC Inferior","type":"scatter","mode":"lines","line":{"color":"#c90808"},"marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.36833349123721182,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.34193659928044645,-0.19720828751081196,-0.36833349123721182,-0.082698318445641156,0.12991060548426903,0.031865743993752367,0.051045892070480159,0.053230190037181095,0.016021034616951115,-0.041572916376904127,-0.29775604068027017,-0.23999983378119744],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.36833349123721182,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.34193659928044645,-0.19720828751081196,-0.36833349123721182,-0.082698318445641156,0.12991060548426903,0.031865743993752367,0.051045892070480159,0.053230190037181095,0.016021034616951115,-0.041572916376904127,-0.29775604068027017,-0.23999983378119744]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,12],"y":[-0.44964657587312673,1],"type":"scatter","mode":"markers","opacity":0,"hoverinfo":"none","showlegend":false,"marker":{"colorbar":{"title":"Coeficiente de Correlación","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"cmin":-0.36833349123721182,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":true,"color":[-0.36833349123721182,1],"line":{"color":"rgba(214,39,40,1)"}},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-18843ba14188ed430122" style="width:624px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-18843ba14188ed430122">{"x":{"visdat":{"1d185faf1d47":["function () ","plotlyVisDat"]},"cur_data":"1d185faf1d47","attrs":{"1d185faf1d47":{"x":{},"y":{},"showlegend":false,"name":"LAG, ACF","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"1d185faf1d47.1":{"x":{},"y":0.52382240861179852,"showlegend":true,"name":"IC Superior","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines","line":{"color":"#c90808"},"inherit":true},"1d185faf1d47.2":{"x":{},"y":-0.52382240861179852,"showlegend":true,"name":"IC Inferior","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines","line":{"color":"#c90808"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":80,"r":10},"title":{"text":"Correlograma Tiempo de Servicio Hamburguesa","font":{"family":"Segoe UI","size":22,"color":"black"}},"xaxis":{"domain":[0,1],"automargin":true,"title":"LAG","font":{"family":"Segoe UI Light","size":15,"color":"black"}},"yaxis":{"domain":[0,1],"automargin":true,"title":"ACF","font":{"family":"Segoe UI Light","size":15,"color":"black"}},"hovermode":"closest","showlegend":true,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"collaborate":false},"data":[{"x":[0,1,2,3,4,5,6,7,8,9,10,11],"y":[1,-0.16868132883845152,-0.046523914267869455,-0.030641065268974855,-0.045517788041112298,-0.052754154793210044,-0.058778433255571833,-0.058233647591577793,0.12630276684884484,-0.0013846069055848155,0.061098372307600263,-0.067228712798382106],"showlegend":false,"name":"LAG, ACF","type":"bar","marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.16868132883845152,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,-0.16868132883845152,-0.046523914267869455,-0.030641065268974855,-0.045517788041112298,-0.052754154793210044,-0.058778433255571833,-0.058233647591577793,0.12630276684884484,-0.0013846069055848155,0.061098372307600263,-0.067228712798382106],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.16868132883845152,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,-0.16868132883845152,-0.046523914267869455,-0.030641065268974855,-0.045517788041112298,-0.052754154793210044,-0.058778433255571833,-0.058233647591577793,0.12630276684884484,-0.0013846069055848155,0.061098372307600263,-0.067228712798382106]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,1,2,3,4,5,6,7,8,9,10,11],"y":[0.52382240861179852,0.52382240861179852,0.52382240861179852,0.52382240861179852,0.52382240861179852,0.52382240861179852,0.52382240861179852,0.52382240861179852,0.52382240861179852,0.52382240861179852,0.52382240861179852,0.52382240861179852],"showlegend":true,"name":"IC Superior","type":"scatter","mode":"lines","line":{"color":"#c90808"},"marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.16868132883845152,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,-0.16868132883845152,-0.046523914267869455,-0.030641065268974855,-0.045517788041112298,-0.052754154793210044,-0.058778433255571833,-0.058233647591577793,0.12630276684884484,-0.0013846069055848155,0.061098372307600263,-0.067228712798382106],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.16868132883845152,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,-0.16868132883845152,-0.046523914267869455,-0.030641065268974855,-0.045517788041112298,-0.052754154793210044,-0.058778433255571833,-0.058233647591577793,0.12630276684884484,-0.0013846069055848155,0.061098372307600263,-0.067228712798382106]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,1,2,3,4,5,6,7,8,9,10,11],"y":[-0.52382240861179852,-0.52382240861179852,-0.52382240861179852,-0.52382240861179852,-0.52382240861179852,-0.52382240861179852,-0.52382240861179852,-0.52382240861179852,-0.52382240861179852,-0.52382240861179852,-0.52382240861179852,-0.52382240861179852],"showlegend":true,"name":"IC Inferior","type":"scatter","mode":"lines","line":{"color":"#c90808"},"marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.16868132883845152,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,-0.16868132883845152,-0.046523914267869455,-0.030641065268974855,-0.045517788041112298,-0.052754154793210044,-0.058778433255571833,-0.058233647591577793,0.12630276684884484,-0.0013846069055848155,0.061098372307600263,-0.067228712798382106],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.16868132883845152,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,-0.16868132883845152,-0.046523914267869455,-0.030641065268974855,-0.045517788041112298,-0.052754154793210044,-0.058778433255571833,-0.058233647591577793,0.12630276684884484,-0.0013846069055848155,0.061098372307600263,-0.067228712798382106]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,11],"y":[-0.52382240861179852,1],"type":"scatter","mode":"markers","opacity":0,"hoverinfo":"none","showlegend":false,"marker":{"colorbar":{"title":"Coeficiente de Correlación","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"cmin":-0.16868132883845152,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":true,"color":[-0.16868132883845152,1],"line":{"color":"rgba(214,39,40,1)"}},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<pre><code>
+    Box-Ljung test
+
+data:  TB_sin_ceros
+X-squared = 0.49027, df = 1, p-value = 0.4838</code></pre>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8b6e4a57c5add4f9566d" style="width:624px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-8b6e4a57c5add4f9566d">{"x":{"visdat":{"1d184a645ad2":["function () ","plotlyVisDat"]},"cur_data":"1d184a645ad2","attrs":{"1d184a645ad2":{"x":{},"y":{},"showlegend":false,"name":"LAG, ACF","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"1d184a645ad2.1":{"x":{},"y":0.65332132818001787,"showlegend":true,"name":"IC Superior","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines","line":{"color":"#c90808"},"inherit":true},"1d184a645ad2.2":{"x":{},"y":-0.65332132818001787,"showlegend":true,"name":"IC Inferior","color":{},"colors":["#e0aaff","#9d4edd","#7b2cbf"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines","line":{"color":"#c90808"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":80,"r":10},"title":{"text":"Correlograma Tiempo de Servicio Nuggets","font":{"family":"Segoe UI","size":22,"color":"black"}},"xaxis":{"domain":[0,1],"automargin":true,"title":"LAG","font":{"family":"Segoe UI Light","size":15,"color":"black"}},"yaxis":{"domain":[0,1],"automargin":true,"title":"ACF","font":{"family":"Segoe UI Light","size":15,"color":"black"}},"hovermode":"closest","showlegend":true,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"collaborate":false},"data":[{"x":[0,1,2,3,4,5,6,7,8],"y":[1,0.12228997326971734,-0.22992360710317783,-0.32887782079096262,-0.20701965617082305,0.063573616685158776,0.26219026090243946,0.028986170818823421,-0.21121893761117555],"showlegend":false,"name":"LAG, ACF","type":"bar","marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.32887782079096262,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.12228997326971734,-0.22992360710317783,-0.32887782079096262,-0.20701965617082305,0.063573616685158776,0.26219026090243946,0.028986170818823421,-0.21121893761117555],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.32887782079096262,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.12228997326971734,-0.22992360710317783,-0.32887782079096262,-0.20701965617082305,0.063573616685158776,0.26219026090243946,0.028986170818823421,-0.21121893761117555]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,1,2,3,4,5,6,7,8],"y":[0.65332132818001787,0.65332132818001787,0.65332132818001787,0.65332132818001787,0.65332132818001787,0.65332132818001787,0.65332132818001787,0.65332132818001787,0.65332132818001787],"showlegend":true,"name":"IC Superior","type":"scatter","mode":"lines","line":{"color":"#c90808"},"marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.32887782079096262,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.12228997326971734,-0.22992360710317783,-0.32887782079096262,-0.20701965617082305,0.063573616685158776,0.26219026090243946,0.028986170818823421,-0.21121893761117555],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.32887782079096262,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.12228997326971734,-0.22992360710317783,-0.32887782079096262,-0.20701965617082305,0.063573616685158776,0.26219026090243946,0.028986170818823421,-0.21121893761117555]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,1,2,3,4,5,6,7,8],"y":[-0.65332132818001787,-0.65332132818001787,-0.65332132818001787,-0.65332132818001787,-0.65332132818001787,-0.65332132818001787,-0.65332132818001787,-0.65332132818001787,-0.65332132818001787],"showlegend":true,"name":"IC Inferior","type":"scatter","mode":"lines","line":{"color":"#c90808"},"marker":{"colorbar":{"title":"acf<br />acf<br />acf","ticklen":2},"cmin":-0.32887782079096262,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.12228997326971734,-0.22992360710317783,-0.32887782079096262,-0.20701965617082305,0.063573616685158776,0.26219026090243946,0.028986170818823421,-0.21121893761117555],"line":{"colorbar":{"title":"","ticklen":2},"cmin":-0.32887782079096262,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":false,"color":[1,0.12228997326971734,-0.22992360710317783,-0.32887782079096262,-0.20701965617082305,0.063573616685158776,0.26219026090243946,0.028986170818823421,-0.21121893761117555]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,8],"y":[-0.65332132818001787,1],"type":"scatter","mode":"markers","opacity":0,"hoverinfo":"none","showlegend":false,"marker":{"colorbar":{"title":"Coeficiente de Correlación","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"cmin":-0.32887782079096262,"cmax":1,"colorscale":[["0","rgba(224,170,255,1)"],["0.0416666666666667","rgba(219,162,252,1)"],["0.0833333333333333","rgba(213,155,249,1)"],["0.125","rgba(208,147,247,1)"],["0.166666666666667","rgba(202,140,244,1)"],["0.208333333333333","rgba(197,132,241,1)"],["0.25","rgba(191,125,238,1)"],["0.291666666666667","rgba(186,117,235,1)"],["0.333333333333333","rgba(180,109,232,1)"],["0.375","rgba(175,102,230,1)"],["0.416666666666667","rgba(169,94,227,1)"],["0.458333333333333","rgba(163,86,224,1)"],["0.5","rgba(157,78,221,1)"],["0.541666666666667","rgba(154,75,218,1)"],["0.583333333333333","rgba(151,72,216,1)"],["0.625","rgba(149,70,213,1)"],["0.666666666666667","rgba(146,67,211,1)"],["0.708333333333333","rgba(143,64,208,1)"],["0.75","rgba(140,61,206,1)"],["0.791666666666667","rgba(137,59,203,1)"],["0.833333333333333","rgba(134,56,201,1)"],["0.875","rgba(132,53,198,1)"],["0.916666666666667","rgba(129,50,196,1)"],["0.958333333333333","rgba(126,47,193,1)"],["1","rgba(123,44,191,1)"]],"showscale":true,"color":[-0.32887782079096262,1],"line":{"color":"rgba(214,39,40,1)"}},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<pre><code>
+    Box-Ljung test
+
+data:  TN_sin_ceros
+X-squared = 0.18507, df = 1, p-value = 0.6671</code></pre>
+</div>
+<h2 id="pruebas-de-bondad-de-ajuste">Pruebas de Bondad de Ajuste</h2>
+<p>La <strong>Prueba de Bondad de Ajuste</strong> es una prueba de hipotesis que permite identificar a que distirbuición de probabilidad pertenece una serie de datos En el proyecto se utiliza la prueba de <em>Kolmogorov-Smirnov</em> debido a que la cantidad de datos recolectados fue inferior a <span class="math inline">\(n &lt; 20\)</span> y los datos son continuos. La prueba de Kolomogorov-Smirnov es la siguiente:</p>
+<h3 id="prueba-de-hipotesis-2">Prueba de Hipotesis</h3>
+<p><span class="math display">\[H_0: f_X(x) = f_0(x)\]</span>
+<span class="math display">\[H_A: f_X(x) \neq f_0(x)\]</span>
+<span class="math display">\[D = \max_{1\leq i \leq N}{\left\{\frac{i}{n}-F_X(x_i), \ F_X(x_i)-\frac{i-1}{n}\right\}}\]</span></p>
+<h3 id="tiempo-entre-arribos-2">Tiempo Entre Arribos</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4f3217c827e3da474f9c" style="width:624px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-4f3217c827e3da474f9c">{"x":{"visdat":{"1d18a912f61":["function () ","plotlyVisDat"]},"cur_data":"1d18a912f61","attrs":{"1d18a912f61":{"x":{},"nbinsx":5,"marker":{"color":"#7b2cbf"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"histogram"}},"layout":{"margin":{"b":"1cm","l":"1cm","t":"1cm","r":"1cm"},"title":{"text":"<b>Histograma Tiempo Entre Arribos <\/b>","font":{"family":"Segoe UI","size":22,"color":"black"}},"xaxis":{"domain":[0,1],"automargin":true,"title":{"text":"<b> Tiempo Entre Arribos  (min)<\/b>","font":{"family":"Segoe UI Light","size":15,"color":"black"}}},"yaxis":{"domain":[0,1],"automargin":true,"title":{"text":"<b>Frecuencia<\/b>","font":{"family":"Segoe UI Light","size":15,"color":"black"}}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[6.4333333333333336,24.233333333333334,23.716666666666669,15.300000000000001,38.633333333333333,16.766666666666666,7.2166666666666668,2.5499999999999998,7.0666666666666664,11.483333333333333,6.583333333333333,3.7833333333333332,13.033333333333333,8.5833333333333339,5.6600000000000001,9.0800000000000001,15.84,1.25],"nbinsx":5,"marker":{"color":"#7b2cbf","line":{"color":"rgba(31,119,180,1)"}},"type":"histogram","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Distribución de Probabilidad
+</th>
+<th style="text-align:right;">
+Test statistic
+</th>
+<th style="text-align:left;">
+p value
+</th>
+<th style="text-align:left;">
+Alternative hypothesis
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+exponencial
+</td>
+<td style="text-align:right;">
+0.2077258
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.3676</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+normal
+</td>
+<td style="text-align:right;">
+0.1843908
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.5146</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uniforme
+</td>
+<td style="text-align:right;">
+0.3993385
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0.0042</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gamma
+</td>
+<td style="text-align:right;">
+0.8101398
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chi_cuad
+</td>
+<td style="text-align:right;">
+0.5114715
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">1e-04</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lognormal
+</td>
+<td style="text-align:right;">
+0.1175794
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.9401</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+weibull
+</td>
+<td style="text-align:right;">
+0.9429448
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pareto
+</td>
+<td style="text-align:right;">
+0.6566549
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cauchy
+</td>
+<td style="text-align:right;">
+0.2389535
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.2176</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="tiempo-de-servicio-caja-2">Tiempo de Servicio Caja</h3>
+<p>Realizamos un histograma para observar a que distribución de probabilidad se ajustan los datos,</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-215d63a8a8371b89f9f1" style="width:624px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-215d63a8a8371b89f9f1">{"x":{"visdat":{"1d1847482096":["function () ","plotlyVisDat"]},"cur_data":"1d1847482096","attrs":{"1d1847482096":{"x":{},"nbinsx":5,"marker":{"color":"#9d4edd"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"histogram"}},"layout":{"margin":{"b":"1cm","l":"1cm","t":"1cm","r":"1cm"},"title":{"text":"<b>Histograma Tiempo de Servicio Caja <\/b>","font":{"family":"Segoe UI","size":22,"color":"black"}},"xaxis":{"domain":[0,1],"automargin":true,"title":{"text":"<b> Tiempo de Servicio Caja  (min)<\/b>","font":{"family":"Segoe UI Light","size":15,"color":"black"}}},"yaxis":{"domain":[0,1],"automargin":true,"title":{"text":"<b>Frecuencia<\/b>","font":{"family":"Segoe UI Light","size":15,"color":"black"}}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[0.45000000000000001,0.69999999999999996,1,2.5800000000000001,1.97,1.3332999999999999,0.45000000000000001,0.52000000000000002,0.78000000000000003,0.83333333333333337,1.05,1.3833333333333333,1.2,2.3999999999999999,0.81666666666666665,0.6845,0.62483333333333335,2.8450000000000002,3.6949999999999998],"nbinsx":5,"marker":{"color":"#9d4edd","line":{"color":"rgba(31,119,180,1)"}},"type":"histogram","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<h4 id="prueba-kolmogorov-smirnnov-tiempo-de-servicio-caja">Prueba Kolmogorov-Smirnnov Tiempo de Servicio Caja</h4>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Distribución de Probabilidad
+</th>
+<th style="text-align:right;">
+Test statistic
+</th>
+<th style="text-align:left;">
+p value
+</th>
+<th style="text-align:left;">
+Alternative hypothesis
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+exponencial
+</td>
+<td style="text-align:right;">
+0.2866132
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.0882</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+normal
+</td>
+<td style="text-align:right;">
+0.2143951
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.3469</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uniforme
+</td>
+<td style="text-align:right;">
+0.4492201
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">9e-04</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gamma
+</td>
+<td style="text-align:right;">
+0.3344423
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0.0285</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chi_cuad
+</td>
+<td style="text-align:right;">
+0.6712358
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lognormal
+</td>
+<td style="text-align:right;">
+0.1398205
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.8515</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+weibull
+</td>
+<td style="text-align:right;">
+0.2425256
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.2137</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cauchy
+</td>
+<td style="text-align:right;">
+0.2582146
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.1587</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+</tbody>
+</table>
+<pre><code>Fitting of the distribution &#39; norm &#39; by maximum likelihood 
+Parameters:
+     estimate Std. Error
+mean 1.332419  0.2074834
+sd   0.904399  0.1467121</code></pre>
+</div>
+<h3 id="tiempo-de-servicio-hamburguesa-1">Tiempo de Servicio Hamburguesa</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ef749bf4096ed441ef7f" style="width:624px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-ef749bf4096ed441ef7f">{"x":{"visdat":{"1d1849603a4e":["function () ","plotlyVisDat"]},"cur_data":"1d1849603a4e","attrs":{"1d1849603a4e":{"x":{},"nbinsx":5,"marker":{"color":"#c77dff"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"histogram"}},"layout":{"margin":{"b":"1cm","l":"1cm","t":"1cm","r":"1cm"},"title":{"text":"<b>Histograma Tiempo de Servicio Hamburguesa <\/b>","font":{"family":"Segoe UI","size":22,"color":"black"}},"xaxis":{"domain":[0,1],"automargin":true,"title":{"text":"<b> Tiempo de Servicio Hamburguesa  (min)<\/b>","font":{"family":"Segoe UI Light","size":15,"color":"black"}}},"yaxis":{"domain":[0,1],"automargin":true,"title":{"text":"<b>Frecuencia<\/b>","font":{"family":"Segoe UI Light","size":15,"color":"black"}}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[20.199999999999999,15.67,17.469999999999999,21.633333333333333,18.399999999999999,21.966666666666665,20.233333333333334,13.233333333333333,17.850000000000001,22.216666666666665,16.199999999999999,21.390000000000001,18.449999999999999,27.550000000000001],"nbinsx":5,"marker":{"color":"#c77dff","line":{"color":"rgba(31,119,180,1)"}},"type":"histogram","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Distribución de Probabilidad
+</th>
+<th style="text-align:right;">
+Test statistic
+</th>
+<th style="text-align:left;">
+p value
+</th>
+<th style="text-align:left;">
+Alternative hypothesis
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+exponencial
+</td>
+<td style="text-align:right;">
+0.4933674
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0.0011</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+normal
+</td>
+<td style="text-align:right;">
+0.1371282
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.9227</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uniforme
+</td>
+<td style="text-align:right;">
+0.3010976
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.1272</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gamma
+</td>
+<td style="text-align:right;">
+0.9999745
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chi_cuad
+</td>
+<td style="text-align:right;">
+0.9787124
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lognormal
+</td>
+<td style="text-align:right;">
+0.1277239
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.9543</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+weibull
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pareto
+</td>
+<td style="text-align:right;">
+0.9244332
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cauchy
+</td>
+<td style="text-align:right;">
+0.2173345
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.4592</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+</tbody>
+</table>
+<pre><code>Fitting of the distribution &#39; norm &#39; by maximum likelihood 
+Parameters:
+      estimate Std. Error
+mean 19.461667  0.9074059
+sd    3.395202  0.6416326</code></pre>
+</div>
+<h3 id="tiempo-de-servicio-nuggets-2">Tiempo de Servicio Nuggets</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e9850d279fd0cc422a2f" style="width:624px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-e9850d279fd0cc422a2f">{"x":{"visdat":{"1d182c582b9":["function () ","plotlyVisDat"]},"cur_data":"1d182c582b9","attrs":{"1d182c582b9":{"x":{},"nbinsx":5,"marker":{"color":"#e0aaff"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"histogram"}},"layout":{"margin":{"b":"1cm","l":"1cm","t":"1cm","r":"1cm"},"title":{"text":"<b>Histograma Tiempo de Servicio Nuggets <\/b>","font":{"family":"Segoe UI","size":22,"color":"black"}},"xaxis":{"domain":[0,1],"automargin":true,"title":{"text":"<b> Tiempo de Servicio Nuggets  (min)<\/b>","font":{"family":"Segoe UI Light","size":15,"color":"black"}}},"yaxis":{"domain":[0,1],"automargin":true,"title":{"text":"<b>Frecuencia<\/b>","font":{"family":"Segoe UI Light","size":15,"color":"black"}}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[19.449999999999999,26.43,26.300000000000001,25.183333333333334,17.850000000000001,22.216666666666665,18.449999999999999,27.530000000000001,33.633333333333333],"nbinsx":5,"marker":{"color":"#e0aaff","line":{"color":"rgba(31,119,180,1)"}},"type":"histogram","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<table class="table table-hover table-striped" style="font-size: 15px; font-family: Segoe UI; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Distribución de Probabilidad
+</th>
+<th style="text-align:right;">
+Test statistic
+</th>
+<th style="text-align:left;">
+p value
+</th>
+<th style="text-align:left;">
+Alternative hypothesis
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+exponencial
+</td>
+<td style="text-align:right;">
+0.5229695
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0.0081</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+normal
+</td>
+<td style="text-align:right;">
+0.1661555
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.9319</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uniforme
+</td>
+<td style="text-align:right;">
+0.2755837
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.4253</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gamma
+</td>
+<td style="text-align:right;">
+0.9999997
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chi_cuad
+</td>
+<td style="text-align:right;">
+0.9968596
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lognormal
+</td>
+<td style="text-align:right;">
+0.1799613
+</td>
+<td style="text-align:left;">
+<span style="     color: green !important;">0.8854</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+weibull
+</td>
+<td style="text-align:right;">
+1.0000000
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pareto
+</td>
+<td style="text-align:right;">
+0.9439776
+</td>
+<td style="text-align:left;">
+<span style="     color: red !important;">0</span>
+</td>
+<td style="text-align:left;">
+two-sided
+</td>
+</tr>
+</tbody>
+</table>
+<pre><code>Fitting of the distribution &#39; norm &#39; by maximum likelihood 
+Parameters:
+      estimate Std. Error
+mean 24.115926   1.611088
+sd    4.833265   1.139211</code></pre>
+</div>
+<h1 id="generación-de-replicas">Generación de Replicas</h1>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<!-- #write_xlsx(datos_creados, "C:\\Users\\LEGION\\Desktop\\ESTUDIOS\\SIMULACION\\Magistral\\Proyecto\\datos_creados.xlsx") -->
+<!-- cant_burger <- datos_creados %>% -->
+<!--   filter(TS_Burger > 0, TS_Nugget==0) %>% -->
+<!--   count(TS_Burger) %>% -->
+<!--   summarise(sum(n)) -->
+<!-- cant_nugget <- datos_creados %>% -->
+<!--   filter(TS_Nugget > 0, TS_Burger==0) %>% -->
+<!--   count(TS_Nugget) %>% -->
+<!--   summarise(sum(n)) -->
+<!-- cant_ambos <- datos_creados %>% -->
+<!--   filter(TS_Burger > 0, TS_Nugget > 0) %>% -->
+<!--   count(TS_Burger) %>% -->
+<!--   summarise(sum(n)) -->
+<!-- cant_burger -->
+<!-- cant_nugget -->
+<!-- cant_ambos -->
+<!-- prob_burger <- as.numeric(cant_burger/(cant_burger+cant_nugget+cant_ambos)) -->
+<!-- prob_nugget <- as.numeric(cant_nugget/(cant_burger+cant_nugget+cant_ambos)) -->
+<!-- prob_ambos <- as.numeric(cant_ambos/(cant_burger+cant_nugget+cant_ambos)) -->
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+
+<div class="distill-site-footer"> 
+  
+  <p> Copyright &copy 2024 - Universidad de los Andes  |  All rights reserved </p>
+
+  <p class="rstudio4edu-footer">Created by Camilo Duque <a class="rstudio4edu-link" href="https://uniandes.edu.co"> <img class="uniandes-logo" src="images/uniandes_logo.png"></a></p>
+
+
+</div>
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
