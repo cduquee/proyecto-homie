@@ -1,0 +1,520 @@
+---
+title: "Homies & Family"
+description: |
+  Proyecto de Simulación de Eventos Discretos.
+site: distill::distill_website
+---
+
+
+```{r , echo=FALSE}
+
+# Cargar la librerías y Datos
+
+library(VGAM)
+library(writexl)
+library(MASS)
+library(survival)
+library(fitdistrplus)
+library(readxl)
+library(rriskDistributions)
+library(dplyr)
+library(plotly)
+library(kableExtra)
+library(formattable)
+
+
+# Especifica el nombre de la hoja que deseas importar
+nombre_hoja <- "G1"
+
+# Importa el archivo Excel y elige solo una hoja
+datos <- read_excel("pDatos proyecto Simulacion.xlsx", sheet = nombre_hoja)
+
+#View(datos)
+
+Tiempos<-datos$TEA
+# Filtrar los datos para eliminar los ceros
+Tiempos_sin_ceros <- Tiempos[Tiempos != 0]
+
+TCaja<-datos$TS_caja
+TCaja_sin_ceros <- TCaja[TCaja != 0]
+
+TNuggets<-datos$TS_Nugget
+TN_sin_ceros <- TNuggets[TNuggets != 0]
+
+TBurger<-datos$TS_Burger
+TB_sin_ceros <- TBurger[TBurger != 0]
+
+      # menu:
+      #   - text: "Publishing Articles"
+      #     href: publish_article.html
+      #   - text: "Publishing a Website"
+      #     href: publish_website.html
+      #   - text: "---"
+      #   - text: "Article Metadata"
+      #     href: metadata.html
+
+```
+
+
+
+# Pruebas de Supuestos
+
+## Homogeniedad de Varianzas
+
+```{r}
+
+datos2 <- replace(datos, datos==0, NA)
+
+bartlett.test(datos2$TEA, g = datos2$Muestra)
+bartlett.test(datos2$TS_caja,g = datos2$Muestra)
+bartlett.test(datos2$TS_Burger,g = datos2$Muestra)
+bartlett.test(datos2$TS_Nugget,g = datos2$Muestra)
+
+```
+
+## Homogeniedad de Media
+
+```{r}
+
+summary(aov(TEA~ Muestra, data = datos2))
+summary(aov(TS_caja~ Muestra, data = datos2))
+summary(aov(TS_Burger~ Muestra, data = datos2))
+summary(aov(TS_Nugget~ Muestra, data = datos2))
+
+```
+
+
+## Autocorrelación
+
+
+```{r , echo=FALSE}
+
+acf(Tiempos_sin_ceros)
+Box.test(Tiempos_sin_ceros,type = "Ljung-Box")
+
+
+acf(TCaja)
+Box.test(TCaja,type = "Ljung-Box")
+
+acf(TB_sin_ceros)
+Box.test(TB_sin_ceros,type = "Ljung-Box")
+
+acf(TN_sin_ceros)
+Box.test(TN_sin_ceros,type = "Ljung-Box")
+
+```
+
+
+## Pruebas de Bondad de Ajuste
+
+La **Prueba de bondad de Ajuste** es una prueba de hipotesis que permite identificar a que distirbuición de probabilidad pertenece una serie de datos En el proyecto se utiliza la prueba de *Kolmogorov-Smirnov* debido a que la cantidad de datos recolectados fue inferior a $n < 20$ y los datos son continuos. La prueba de Kolomogorov-Smirnov es la siguiente:
+
+#### Prueba de Hipotesis:
+
+$$H_0: f_X(x) = f_0(x)$$
+$$H_A: f_X(x) \neq f_0(x)$$
+$$D = \max_{1\leq i \leq N}{\left\{\frac{i}{n}-F_X(x_i), \ F_X(x_i)-\frac{i-1}{n}\right\}}$$
+
+### Tiempo Entre Arribos
+
+```{r TEA, echo=FALSE, results='asis', fig.align='center'}
+
+#----------------------------TEA
+
+#Histograma Datos TEA
+
+par(mar = c(5, 5, 2, 2))  
+Tiempos<-datos$TEA
+
+# Filtrar los datos para eliminar los ceros
+Tiempos_sin_ceros <- Tiempos[Tiempos != 0]
+
+#hist(Tiempos_sin_ceros,nclass = 5)
+
+#---------------------Histograma---------------------
+
+t <- list(
+  family = "Segoe UI",
+  size = 22,
+  color = "black")
+t2 <- list(
+  family = "Segoe UI Light",
+  size = 15,
+  color = "black")
+
+histograma_plot <- function(data, titulo, color_hist){ plot_ly(as.data.frame(data), x = ~data,
+              type = "histogram", nbinsx = 5, marker = list(color = color_hist)) %>%
+  layout(title = list(text = paste("<b>Histograma",titulo, "</b>"), font = t),
+         xaxis = list(title=list(text=paste("<b>",titulo," (min)</b>"), font = t2)), yaxis = list(title=list(text="<b>Frecuencia</b>", font = t2)), margin = list(t = "1cm", b = "1cm", l = "1cm", r = "1cm"))
+}
+
+histograma_plot(Tiempos_sin_ceros, "Tiempo Entre Arribos", "#7b2cbf")
+
+#----------------------------------------------------
+
+
+ajuste1 <- fitdist(Tiempos_sin_ceros, "exp")
+ajuste2 <- fitdist(Tiempos_sin_ceros, "norm")
+ajuste3 <- fitdist(Tiempos_sin_ceros, "lnorm",method = "mle")
+
+
+n_mean <- mean(Tiempos_sin_ceros)
+n_sd <- sd(Tiempos_sin_ceros)
+
+n_mean <- ajuste2$estimate["mean"]
+n_sd <- ajuste2$estimate["sd"]
+
+ln_sd <- sqrt(log(n_sd^2/n_mean^2 + 1))
+ln_mean <- log(n_mean/exp(0.5*ln_sd^2))
+
+
+# Realizar todas las pruebas de Kolmogorov-Smirnov y almacenar los resultados
+ks_results <- list(
+  "exponencial" = ks.test(Tiempos_sin_ceros, "pexp", rate = ajuste1$estimate, simulate.p.value = TRUE),
+  "normal" = ks.test(Tiempos_sin_ceros, "pnorm", mean = ajuste2$estimate["mean"], sd = ajuste2$estimate["sd"]),
+  "uniforme" = ks.test(Tiempos_sin_ceros, "punif", min(Tiempos), max(Tiempos)),
+  "gamma" = ks.test(Tiempos_sin_ceros, "pgamma", shape = 2, rate = 1),
+  "chi_cuad" = ks.test(Tiempos_sin_ceros, "pchisq", df = 5),
+   
+  # Aplicar la prueba de Kolmogorov-Smirnov a la distribución lognormal
+  "lognormal" = ks.test(Tiempos_sin_ceros, "plnorm", meanlog =  ajuste3$estimate["meanlog"], sdlog = ajuste3$estimate["sdlog"]
+),
+  "weibull" = ks.test(Tiempos_sin_ceros, "pweibull", shape = 2, scale = 1),
+  "pareto" = ks.test(Tiempos_sin_ceros, "ppareto", scale = 1, shape = 1),
+  "cauchy" = ks.test(Tiempos_sin_ceros, "pcauchy", location = mean(Tiempos), scale = sd(Tiempos))
+  
+)
+
+#fit.cont(Tiempos)
+
+# Extraer los valores p
+p_values <- sapply(ks_results, function(result) result$p.value)
+
+# Encontrar el nombre de la distribución con el máximo valor p
+dist_max_p <- names(p_values)[which.max(p_values)]
+
+# # Imprimir el nombre de la distribución con el máximo valor p y su valor p correspondiente
+# cat("La distribución con el máximo valor p es:", dist_max_p, "\n", "El máximo valor p es:", p_values[dist_max_p])
+
+
+
+tabla_kstest <- function(pruebas_ks){
+  i = 1
+  for (data in pruebas_ks) {
+    if (i==1) {
+      summary = data.frame("Distribución de Probabilidad" = names(pruebas_ks)[i],
+                         `Test statistic` = data$statistic,
+                         `p value` = data$p.value,
+                         `Alternative hypothesis` = data$alternative,
+                         check.names = FALSE)
+      i = i + 1
+    }
+    else {
+      datatemp <- data.frame("Distribución de Probabilidad" = names(pruebas_ks)[i],
+                         `Test statistic` = data$statistic,
+                         `p value` = data$p.value,
+                         `Alternative hypothesis` = data$alternative,
+                         check.names = FALSE)
+      i = i + 1
+      summary = bind_rows(summary, datatemp)
+    }
+  }
+  summary$`p value` <- round(summary$`p value`,4)
+summary$`p value` <- cell_spec(summary$`p value`, color = ifelse(summary$`p value` > 0.05, "green", "red"))
+
+kable(format = "html", summary, booktabs = T, caption = NULL, row.names = FALSE, escape = FALSE) %>%
+  kable_styling( html_font = "Segoe UI", font_size = 15, bootstrap_options = c("hover","striped"), latex_options = c("striped","scale_down", "hold_position"))%>%
+    gsub("font-size: initial !important;", "font-size: 15pt !important;", .)
+}
+
+tabla_kstest(ks_results)
+
+
+```
+
+
+### Tiempo de Servicio Caja
+
+Realizamos un histograma para observar a que distribución de probabilidad se ajustan los datos, 
+
+```{r, echo=FALSE}
+#----------------------------------TS CAJA----------------------------
+TCaja<-datos$TS_caja
+TCaja_sin_ceros <- TCaja[TCaja != 0]
+
+#fit.cont(TCaja)
+#hist(TCaja_sin_ceros,nclass = 5)
+
+ajuste1 <- fitdist(TCaja, "exp")
+ajuste2 <- fitdist(TCaja, "norm")
+ajuste3 <- fitdist(TCaja, "lnorm")
+
+
+histograma_plot(TCaja, "Tiempo de Servicio Caja", "#9d4edd")
+
+
+
+```
+
+#### Prueba Kolmogorov-Smirnnov Tiempo de Servicio Caja
+
+```{r, echo=FALSE}
+
+# Realizar todas las pruebas de Kolmogorov-Smirnov y almacenar los resultados
+ks_results_Tcaja <- list(
+  exponencial = ks.test(TCaja, "pexp", rate = ajuste1$estimate),
+  normal = ks.test(TCaja, "pnorm", mean = ajuste2$estimate["mean"], sd = ajuste2$estimate["sd"]),
+  uniforme = ks.test(TCaja, "punif", min(TCaja), max(TCaja)),
+  gamma = ks.test(TCaja, "pgamma", shape = 2, rate = 1),
+  chi_cuad = ks.test(TCaja, "pchisq", df = 5),
+  lognormal = ks.test(TCaja, "plnorm", meanlog =  ajuste3$estimate["meanlog"], sdlog = ajuste3$estimate["sdlog"]),
+  weibull = ks.test(TCaja, "pweibull", shape = 2, scale = 1),
+  cauchy = ks.test(TCaja, "pcauchy", location = mean(TCaja), scale = sd(TCaja))
+)
+
+
+# Extraer los valores p
+p_values <- sapply(ks_results_Tcaja, function(result) result$p.value)
+
+# Encontrar el nombre de la distribución con el máximo valor p
+dist_max_p <- names(p_values)[which.max(p_values)]
+
+# # Imprimir el nombre de la distribución con el máximo valor p y su valor p correspondiente
+# cat("La distribución con el máximo valor p es:", dist_max_p, "\n", "El máximo valor p es:", p_values[dist_max_p])
+
+tabla_kstest(ks_results_Tcaja)
+ajuste2
+
+```
+
+### Tiempo de Servicio Hamburguesa
+
+```{r, echo=FALSE}
+#--------------------------------TSBURGER-----------------------
+
+TBurger<-datos$TS_Burger
+TB_sin_ceros <- TBurger[TBurger != 0]
+
+
+#hist(TB_sin_ceros,nclass = 5)
+
+histograma_plot(TB_sin_ceros, "Tiempo de Servicio Hamburguesa", "#c77dff")
+
+ajuste1 <- fitdist(TB_sin_ceros, "exp")
+ajuste2 <- fitdist(TB_sin_ceros, "norm")
+ajuste3 <- fitdist(TB_sin_ceros, "lnorm")
+
+# Realizar todas las pruebas de Kolmogorov-Smirnov y almacenar los resultados
+ks_results_TBurger <- list(
+  exponencial = ks.test(TB_sin_ceros, "pexp", rate = ajuste1$estimate),
+  normal = ks.test(TB_sin_ceros, "pnorm", mean =ajuste2$estimate["mean"], sd = ajuste2$estimate["sd"]),
+  uniforme = ks.test(TB_sin_ceros, "punif", min(TB_sin_ceros), max(TB_sin_ceros)),
+  gamma = ks.test(TB_sin_ceros, "pgamma", shape = 2, rate = 1),
+  chi_cuad = ks.test(TB_sin_ceros, "pchisq", df = 5),
+  lognormal = ks.test(TB_sin_ceros, "plnorm", meanlog = ajuste3$estimate["meanlog"], sdlog = ajuste3$estimate["sdlog"]),
+  weibull = ks.test(TB_sin_ceros, "pweibull", shape = 2, scale = 1),
+  pareto = ks.test(TB_sin_ceros, "ppareto", scale = 1, shape = 1),
+  cauchy = ks.test(TB_sin_ceros, "pcauchy", location = mean(TB_sin_ceros), scale = sd(TB_sin_ceros))
+)
+
+
+# Extraer los valores p
+p_values_TBurger <- sapply(ks_results_TBurger, function(result) result$p.value)
+
+# Encontrar el nombre de la distribución con el máximo valor p
+dist_max_p <- names(p_values)[which.max(p_values)]
+
+# # Imprimir el nombre de la distribución con el máximo valor p y su valor p correspondiente
+# cat("La distribución con el máximo valor p es:", dist_max_p, "\n", "El máximo valor p es:", p_values[dist_max_p])
+
+tabla_kstest(ks_results_TBurger)
+ajuste2
+```
+
+### Tiempo de Servicio Nuggets
+
+```{r, echo=FALSE}
+#-----------------------------TNuggets---------------------------
+TNuggets<-datos$TS_Nugget
+TN_sin_ceros <- TNuggets[TNuggets != 0]
+
+#hist(TN_sin_ceros, nclass = 3)
+
+histograma_plot(TN_sin_ceros, "Tiempo de Servicio Nuggets", "#e0aaff")
+
+ajuste1 <- fitdist(TN_sin_ceros, "exp")
+ajuste2 <- fitdist(TN_sin_ceros, "norm")
+ajuste3 <- fitdist(TN_sin_ceros, "lnorm")
+
+# Realizar todas las pruebas de Kolmogorov-Smirnov y almacenar los resultados
+ks_results_TNuggets <- list(
+  exponencial = ks.test(TN_sin_ceros, "pexp", rate = ajuste1$estimate),
+  normal = ks.test(TN_sin_ceros, "pnorm", mean =ajuste2$estimate["mean"], sd = ajuste2$estimate["sd"]),
+  uniforme = ks.test(TN_sin_ceros, "punif", min(TN_sin_ceros), max(TN_sin_ceros)),
+  gamma = ks.test(TN_sin_ceros, "pgamma", shape = 2, rate = 1),
+  chi_cuad = ks.test(TN_sin_ceros, "pchisq", df = 5),
+  lognormal = ks.test(TN_sin_ceros, "plnorm", meanlog = ajuste3$estimate["meanlog"], sdlog = ajuste3$estimate["sdlog"]),
+  weibull = ks.test(TN_sin_ceros, "pweibull", shape = 2, scale = 1),
+  pareto = ks.test(TN_sin_ceros , "ppareto", scale = 1, shape = 1)
+  #cauchy = ks.test(TNuggets, "pcauchy", location = mean(TNuggets), scale = sd(TNuggets)),
+  #poisson = ks.test(TNuggets, "ppois", lambda = mean(TNuggets))
+)
+
+
+# Extraer los valores p
+p_values_TNuggets <- sapply(ks_results_TNuggets, function(result) result$p.value)
+
+# Encontrar el nombre de la distribución con el máximo valor p
+dist_max_p_TNuggets <- names(p_values_TNuggets)[which.max(p_values_TNuggets)]
+
+# # Imprimir el nombre de la distribución con el máximo valor p y su valor p correspondiente
+# cat("La distribución con el máximo valor p para TNuggets es:", dist_max_p_TNuggets, "\n", "El máximo valor p es:", p_values_TNuggets[dist_max_p_TNuggets])
+
+tabla_kstest(ks_results_TNuggets)
+ajuste2
+
+```
+
+
+```{r, echo=FALSE}
+
+#--------------ALEATORIOS-------------
+
+
+#TN_norm <- fitdist(TN_sin_ceros, distr = "norm")
+
+#n_mean <- TN_norm$estimate["mean"]
+#n_sd <- TN_norm$estimate["sd"]
+
+#ln_sd <- sqrt(log(n_sd^2/n_mean^2 + 1))
+#ln_mean <- log(n_mean/exp(0.5*ln_sd^2))
+#ln_sd
+#ln_mean
+
+cant_datos <- 19*4
+
+
+# ---------------Distribucion LogNormal (TEA)---------------
+
+TEA_exp <- fitdist(Tiempos_sin_ceros, distr = "exp")
+
+
+# Generar datos aleatorios basados en una distribución exponencial (TEA)
+set.seed(1)
+datos_aleatorios_exp_TEA <- rexp(n = cant_datos, rate = TEA_exp$estimate)
+
+
+# ---------------Distribucion LogNormal (TS_Caja)---------------
+
+TS_Caja_lognorm <- fitdist(TCaja, distr = "lnorm")
+
+# Generar datos aleatorios basados en una distribución lognormal (TS_Caja)
+set.seed(2)
+datos_aleatorios_lognormal_TSCaja <- rlnorm(n = cant_datos, meanlog = TS_Caja_lognorm$estimate["meanlog"], sdlog = TS_Caja_lognorm$estimate["sdlog"])
+
+
+# ---------------Distribucion Normal (TS_Burger)---------------
+
+TS_Burger_norm <- fitdist(TB_sin_ceros, distr = "norm")
+
+# Generar datos aleatorios basados en una Distribución Normal (TS_Burger)
+set.seed(3)
+datos_aleatorios_norm_TSBurger <- rnorm(n = cant_datos, mean = TS_Burger_norm$estimate["mean"], sd = TS_Burger_norm$estimate["sd"])
+
+
+# ---------------Distribucion Normal (TS_Nuggets)---------------
+
+TS_Nuggets_norm <- fitdist(TN_sin_ceros, distr = "norm")
+
+
+# Generar datos aleatorios basados en una Distribución Normal (TS_Nuggets)
+set.seed(4)
+datos_aleatorios_norm_TSNuggets <- rnorm(n = cant_datos, mean = TS_Nuggets_norm$estimate["mean"], sd = TS_Nuggets_norm$estimate["sd"])
+
+
+# ---------------Replicas---------------
+
+datos_creados <- data.frame(TEA=datos_aleatorios_exp_TEA, TS_Caja = datos_aleatorios_lognormal_TSCaja, TS_Burger= datos_aleatorios_norm_TSBurger, TS_Nugget = datos_aleatorios_norm_TSNuggets)
+
+# Probabilidad de que cliente pida Burger, Nuggets o Ambos.
+set.seed(6)
+prob_alea <- runif(n=cant_datos, min = 0, max = 1)
+
+cant_burger <- datos %>%
+  filter(TS_Burger > 0, TS_Nugget == 0) %>%
+  count(TS_Burger) %>%
+  summarise(sum(n))
+
+cant_nugget <- datos %>%
+  filter(TS_Nugget > 0, TS_Burger == 0) %>%
+  count(TS_Nugget) %>%
+  summarise(sum(n))
+
+cant_ambos <- datos %>%
+  filter(TS_Burger > 0,TS_Nugget > 0) %>%
+  count(TS_Burger) %>%
+  summarise(sum(n))
+
+
+prob_burger <- as.numeric(cant_burger/(cant_burger+cant_nugget+cant_ambos))
+prob_nugget <- as.numeric(cant_nugget/(cant_burger+cant_nugget+cant_ambos))
+prob_ambos <- as.numeric(cant_ambos/(cant_burger+cant_nugget+cant_ambos))
+
+i=1
+
+for (entidad in prob_alea) {
+  if (entidad >= prob_burger) {
+    datos_creados$TS_Nugget[i] = 0
+    i = i +1
+  } else if(entidad >= (prob_burger-prob_nugget)){
+    datos_creados$TS_Burger[i] = 0
+    i = i + 1
+  } else if(entidad < (prob_burger-prob_nugget)) {
+    i = i +1
+  }
+}
+
+```
+
+
+<!-- #write_xlsx(datos_creados, "C:\\Users\\LEGION\\Desktop\\ESTUDIOS\\SIMULACION\\Magistral\\Proyecto\\datos_creados.xlsx") -->
+
+
+<!-- cant_burger <- datos_creados %>% -->
+<!--   filter(TS_Burger > 0, TS_Nugget==0) %>% -->
+<!--   count(TS_Burger) %>% -->
+<!--   summarise(sum(n)) -->
+
+<!-- cant_nugget <- datos_creados %>% -->
+<!--   filter(TS_Nugget > 0, TS_Burger==0) %>% -->
+<!--   count(TS_Nugget) %>% -->
+<!--   summarise(sum(n)) -->
+
+<!-- cant_ambos <- datos_creados %>% -->
+<!--   filter(TS_Burger > 0, TS_Nugget > 0) %>% -->
+<!--   count(TS_Burger) %>% -->
+<!--   summarise(sum(n)) -->
+
+<!-- cant_burger -->
+<!-- cant_nugget -->
+<!-- cant_ambos -->
+
+<!-- prob_burger <- as.numeric(cant_burger/(cant_burger+cant_nugget+cant_ambos)) -->
+<!-- prob_nugget <- as.numeric(cant_nugget/(cant_burger+cant_nugget+cant_ambos)) -->
+<!-- prob_ambos <- as.numeric(cant_ambos/(cant_burger+cant_nugget+cant_ambos)) -->
+
+
+# Generación de Replicas
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
